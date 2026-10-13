@@ -1,7 +1,12 @@
 ---
+import CloudCurtain from '../components/CloudCurtain.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout>
-	<h1>Welcome to My Astro Site</h1>
+<Layout title="Dylan Levy - Developer & Ohio State CSE Student" description="I am a software developer, empowering the modern web with innovative solutions.">
+	<Header />
+	<Hero />
+	<CloudCurtain />
 </Layout>

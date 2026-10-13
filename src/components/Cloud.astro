@@ -1,0 +1,60 @@
+---
+
+type Props = {
+  color?: string;
+  size?: number;
+};
+const { color = "white", size } = Astro.props;
+const cloudWidth = size === undefined ? "100%" : `${size}px`;
+
+const matches = import.meta.glob('../assets/clouds/*.svg', { eager: true, query: "raw", import: "default" });
+const clouds = Object.values(matches);
+const randomCloud = clouds[Math.floor(Math.random() * clouds.length)] as any;
+const hasContent = Astro.slots.has("default");
+const cloudShape = hasContent
+  ? randomCloud.replace("<svg ", '<svg preserveAspectRatio="none" ')
+  : randomCloud;
+---
+
+<div class:list={["cloud", { "has-content": hasContent }]}>
+  <div class="cloud-shape" set:html={cloudShape}></div>
+  {hasContent && (
+    <div class="cloud-content"><slot /></div>
+  )}
+</div>
+
+<style define:vars={{color, cloudWidth}}>
+  .cloud {
+    position: relative;
+    width: var(--cloudWidth);
+    max-width: 100%;
+  }
+
+  .cloud-shape :global(svg) {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .cloud-content {
+    position: relative;
+    padding: clamp(80px, 20vw, 140px) 23%;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .has-content .cloud-shape {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .has-content .cloud-shape :global(svg) {
+    height: 100%;
+  }
+
+  .cloud :global(svg path) {
+    fill: var(--color);
+  }
+</style>
