@@ -1,0 +1,75 @@
+<section class="education" aria-labelledby="Education">
+    <h2 id="education-heading">Education</h2>
+    <div class="grid">
+        <article class="card">
+            <span class="entry-date">Expected May 2030 · Columbus, Ohio</span
+            ><h3>The Ohio State University</h3><p class="role">
+                B.S. in Computer Science Engineering · Minor in Mathematics
+            </p><p>
+                Relevant coursework: Software I, Digital Logic, Engineering
+                Fundamentals, and Linear Algebra.
+            </p>
+        </article>
+        <article class="card">
+            <span class="entry-date">May 2026 · Solon, Ohio</span><h3>
+                Solon High School
+            </h3><p class="role">High School Honors Diploma</p><p>
+                GPA: 4.3 weighted / 3.7 unweighted.
+            </p><p>
+                Honor Roll (2023, 2024, 2025, 2026), AP Scholar with Distinction
+                (2025, 2026), Varsity Letter (2024, 2025, 2026), and National
+                Recognition (2025).
+            </p>
+        </article>
+    </div>
+</section>
+
+<style>
+    .education {
+        max-width: 1200px;
+        padding: 0 40px;
+        margin: 0 auto 80px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+        margin-top: 32px;
+    }
+
+    .card {
+		padding: 28px;
+		border: 1px solid var(--color-line);
+		border-radius: 24px;
+		background: rgb(255 255 255 / 0.07);
+	}
+
+    .card h3 {
+		margin: 12px 0;
+		font-size: 1.1rem;
+		letter-spacing: -0.03em;
+	}
+	.card p,
+	.card li {
+		color: var(--color-muted);
+		font-size: 0.875rem;
+		line-height: 1.8;
+	}
+	.card .role {
+		color: var(--color-ink);
+		font-weight: 500;
+	}
+	.card ul {
+		padding-left: 18px;
+		margin-bottom: 0;
+	}
+	.card li + li {
+		margin-top: 8px;
+	}
+	.entry-date {
+		color: var(--color-muted);
+		font-size: 0.75rem;
+		line-height: 1.6;
+	}
+</style>
