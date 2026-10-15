@@ -1,13 +1,13 @@
 ---
 import { Image } from "astro:assets";
-import glassesPicture from "../assets/me/glasses.jpg";
+import traditionalPicture from "../assets/me/traditional.jpg";
 ---
 
 <section class="about" id="about" aria-labelledby="about-heading">
     <div class="about-profile">
         <Image
-            src={glassesPicture}
-            alt="Dylan Levy wearing glasses"
+            src={traditionalPicture}
+            alt="Dylan Levy in a traditional setting"
             class="about-image"
             width={320}
             height={320}
@@ -20,7 +20,7 @@ import glassesPicture from "../assets/me/glasses.jpg";
         </div>
     </div>
 
-    <div class="about-copy">
+    <div class="about-copy ">
         <h2 id="about-heading">About Me</h2>
 
         <p>
@@ -30,17 +30,16 @@ import glassesPicture from "../assets/me/glasses.jpg";
         </p>
 
         <p>
-            Outside of programming, I've spent four seasons pole vaulting,
-            helped classmates learn computer science, and volunteered to make
+            Outside of programming, I've helped classmates learn computer
+            science, participated in hackathons, and volunteered to make
             technology more approachable for seniors. Whether I'm debugging code
-            or refining a vault, I like the process of getting a little better
+            or refining a design, I like the process of getting a little better
             each time.
         </p>
 
         <ul class="tags" aria-label="Interests and achievements">
             <li>Developer</li>
             <li>Student</li>
-            <li>Pole vaulter · 13' 4″</li>
         </ul>
     </div>
 </section>

@@ -10,7 +10,17 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Dylan Levy - Developer & Ohio State CSE Student" description="I am a software developer, empowering the modern web with innovative solutions.">
 	<Header />
 	<Hero />
+	<div class="divider" aria-hidden="true"></div>
 	<About />
 	<Education />
-	<CloudCurtain />
+	<CloudCurtain duration={2.5} />
 </Layout>
+
+<style>
+	.divider {
+		max-width: var(--content-width);
+		height: 1px;
+		background: var(--color-line);
+		margin: 0 auto 80px;
+	}
+</style>

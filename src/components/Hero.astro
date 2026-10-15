@@ -6,7 +6,7 @@
         Hi, I'm Dylan <br />I turn ideas into <em>reality.</em>
     </h1>
     <p class="intro fade-in">
-        Computer Science Engineering student at The Ohio State University.
+        Computer Science Engineering student at The Ohio State University. <br class="hidden-sm"/>
         Building for the web, mobile, and everything I'm curious about.
     </p>
     <a class="primary-link fade-in" href="#projects"
@@ -15,6 +15,7 @@
 </section>
 
 <style>
+
     .hero {
         text-align: center;
         max-width: 800px;
@@ -66,26 +67,11 @@
     .primary-link:hover {
         transform: translateY(-2px);
     }
-
-    .fade-in {
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeIn 1s ease forwards;
-        animation-delay: calc(var(--fade-in-index, 0) * 0.3s + 0.5s);
-    }
-
-    @keyframes fadeIn {
-        to {
-            opacity: 1;
-            transform: translateY(0);
+    
+    @media (max-width: 600px) {
+        .hidden-sm {
+            display: none;
         }
     }
-</style>
 
-<script>
-    document
-        .querySelectorAll<HTMLElement>(".fade-in")
-        .forEach((element, index) => {
-            element.style.setProperty("--fade-in-index", index + "");
-        });
-</script>
+</style>
