@@ -1,0 +1,49 @@
+---
+type Props = {
+  color?: string;
+  size?: number;
+};
+
+const { color = "#fbbf24", size = 140 } = Astro.props;
+const rays = Array.from({ length: 12 }, (_, index) => index * 30);
+---
+
+<svg
+  class="sun"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 120 120"
+  width={size}
+  height={size}
+  aria-hidden="true"
+  style={{ color }}
+>
+  <g stroke="currentColor" stroke-width="5" stroke-linecap="round">
+    {
+      rays.map((angle) => (
+        <line
+          x1="60"
+          y1="9"
+          x2="60"
+          y2="20"
+          transform={`rotate(${angle} 60 60)`}
+        />
+      ))
+    }
+  </g>
+  <circle cx="60" cy="60" r="29" fill="currentColor"></circle>
+  <path
+    d="M40 53a22 22 0 0 1 20-15"
+    fill="none"
+    stroke="#fef3c7"
+    stroke-width="4"
+    stroke-linecap="round"></path>
+</svg>
+
+<style>
+  .sun {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 16px rgb(251 191 36 / 0.45));
+  }
+</style>

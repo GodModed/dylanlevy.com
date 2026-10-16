@@ -1,26 +1,27 @@
 ---
-import About from '../components/About.astro';
-import Education from '../components/Education.astro';
-import CloudCurtain from '../components/CloudCurtain.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import Layout from '../layouts/Layout.astro';
+import About from "../components/sections/About.astro";
+import Education from "../components/sections/Education.astro";
+import CloudCurtain from "../components/CloudCurtain.astro";
+import Header from "../components/sections/Header.astro";
+import Hero from "../components/sections/Hero.astro";
+import Layout from "../layouts/Layout.astro";
+import Break from "../components/Break.astro";
+import Contact from "../components/sections/Contact.astro";
+import Cloud from "../components/Cloud.astro";
+import Scenery from "../components/sections/Scenery.astro";
 ---
 
-<Layout title="Dylan Levy - Developer & Ohio State CSE Student" description="I am a software developer, empowering the modern web with innovative solutions.">
+<Layout
+	title="Dylan Levy - Developer & Ohio State CSE Student"
+	description="I am a software developer, empowering the modern web with innovative solutions."
+>
+	<Scenery />
+
 	<Header />
 	<Hero />
-	<div class="divider" aria-hidden="true"></div>
+	<Break />
 	<About />
 	<Education />
+	<Contact />
 	<CloudCurtain duration={2.5} />
 </Layout>
-
-<style>
-	.divider {
-		max-width: var(--content-width);
-		height: 1px;
-		background: var(--color-line);
-		margin: 0 auto 80px;
-	}
-</style>

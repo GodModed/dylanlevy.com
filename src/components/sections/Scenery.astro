@@ -1,0 +1,83 @@
+---
+import Cloud from "../Cloud.astro";
+import Sun from "../Sun.astro";
+---
+
+<div class="scenery">
+    <div class="sun">
+        <Sun color="#fbbf24" size={140} />
+    </div>
+    <div class="clouds">
+        <Cloud size={200} />
+        <Cloud size={150} />
+        <Cloud size={100} />
+    </div>
+</div>
+
+<style>
+    .scenery {
+        position: absolute;
+        inset: 0 0 auto;
+        height: 1050px;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .scenery .sun {
+        position: absolute;
+        top: 125px;
+        right: 9%;
+        width: clamp(80px, 11vw, 130px);
+    }
+
+    .scenery .clouds {
+        position: absolute;
+        inset: 0;
+        opacity: 0.7;
+    }
+
+    .scenery .clouds > :global(*) {
+        position: absolute;
+        filter: drop-shadow(0 12px 18px rgb(74 115 156 / 10%));
+        animation: drift 18s ease-in-out infinite alternate;
+    }
+
+    .scenery .clouds > :global(:nth-child(1)) {
+        width: 260px;
+        left: -70px;
+        top: 200px;
+        opacity: 0.8;
+    }
+
+    .scenery .clouds > :global(:nth-child(2)) {
+        width: 190px;
+        right: -45px;
+        top: 390px;
+        opacity: 0.55;
+        animation-delay: -6s;
+    }
+
+    .scenery .clouds > :global(:nth-child(3)) {
+        width: 140px;
+        left: 22%;
+        top: 530px;
+        opacity: 0.35;
+        animation-delay: -11s;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .scenery .clouds > :global(*) {
+            animation: none;
+        }
+    }
+
+    @keyframes drift {
+        0% {
+            transform: translateX(-10%);
+        }
+        100% {
+            transform: translateX(10%);
+        }
+    }
+</style>

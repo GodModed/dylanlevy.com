@@ -43,6 +43,31 @@
     h1 em {
         font-family: Georgia, serif;
         font-weight: 400;
+        position: relative;
+        display: inline-block;
+        /* background: #f5d28e; */
+    }
+
+    h1 em::before {
+        content: "";
+        background: #f5d28e;
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        clip-path: polygon(
+            1% 20%, 7% 13%, 18% 16%, 29% 8%, 41% 12%, 53% 5%,
+            65% 10%, 78% 4%, 91% 8%, 99% 17%, 96% 30%, 100% 43%,
+            95% 56%, 98% 69%, 91% 78%, 81% 75%, 70% 84%, 58% 78%,
+            46% 88%, 34% 81%, 22% 91%, 12% 84%, 3% 90%, 5% 76%,
+            0% 63%, 4% 50%, 1% 37%, 5% 28%
+        );
+        transform: scale(0);
+        transform-origin: center;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    h1 em:hover::before {
+        transform: scale(1);
     }
 
     .intro {
