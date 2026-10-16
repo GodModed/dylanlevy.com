@@ -1,13 +1,76 @@
-<!-- <section
-    class="contact"
-    id="contact"
-    aria-labelledby="Contact Me"
->
+<section class="contact" id="contact" aria-labelledby="Contact Me">
+    <h1 id="contact-heading">Let's Build Something Together</h1>
     <p>
-        Let's connect! I'm always open to discussing new opportunities, collaborations, or just having a chat about technology and development.
-    </p><a class="primary-link" href="mailto:levy.552@osu.edu"
-        >levy.552@osu.edu <span aria-hidden="true">↗</span></a
-    ><p class="contact-location">
-        Solon, Ohio · <a href="tel:+12169050165">216-905-0165</a>
-    </p>
-</section> -->
+        Let's connect! I'm always open to discussing new opportunities,
+        collaborations, or just having a chat about technology and development.
+    </p><a class="primary-link" href="mailto:djlevy26@gmail.com"
+        >djlevy26@gmail.com <span aria-hidden="true">↗</span></a
+    >
+    <div class="links">
+         <a href="https://github.com/GodModed">
+            <p>GitHub</p>
+        </a>
+        <a href="https://www.linkedin.com/in/dylan-levy-1a8994300/">
+            <p>LinkedIn</p>
+        </a>
+    </div>
+</section>
+
+<style>
+    .contact {
+        padding-inline: 24px;
+        margin-bottom: 60px;
+        text-align: center;
+        border-top: 1px solid var(--color-line);
+        padding-top: 64px;
+    }
+
+    .contact p {
+        color: var(--color-muted);
+        line-height: 1.8;
+    }
+
+    .contact a {
+        display: inline-block;
+        margin-top: 24px;
+    }
+
+    .primary-link {
+        display: inline-flex;
+        gap: 24px;
+        padding: 15px 24px;
+        margin-top: 18px;
+        background: var(--color-ink);
+        color: var(--color-sky);
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: 0.85rem;
+        transition: transform 200ms;
+    }
+    .primary-link:hover {
+        transform: translateY(-3px);
+    }
+
+    .links {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+    }
+
+    .links a {
+        color: var(--color-ink);
+        text-decoration: none;
+        font-size: 0.85rem;
+        transition: transform 200ms;
+    }
+
+    .links a p {
+        margin: 0;
+        font-size: 0.85rem;
+    }
+
+    .links a:hover {
+        transform: translateY(-3px);
+    }
+
+</style>

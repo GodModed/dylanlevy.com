@@ -1,5 +1,8 @@
 <section class="education" aria-labelledby="Education">
-    <h2 id="education-heading">Education</h2>
+    <h1 id="education-heading">Education</h1>
+    <p>
+        My educational background and the experiences that have shaped my journey in computer science.
+    </p>
     <div class="grid">
         <article class="card">
             <span class="entry-date">Expected May 2030 · Columbus, Ohio</span
@@ -72,4 +75,10 @@
 		font-size: 0.75rem;
 		line-height: 1.6;
 	}
+
+    @media (max-width: 700px) {
+        .grid {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>
