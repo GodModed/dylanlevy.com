@@ -123,4 +123,10 @@ const { title, description } = Astro.props;
 		.forEach((element, index) => {
 			element.style.setProperty("--fade-in-index", index + "");
 		});
+
+
+	const date = new Date();
+	if (date.getHours() >= 18 || date.getHours() < 6) {
+		document.documentElement.classList.add("dark");
+	}
 </script>

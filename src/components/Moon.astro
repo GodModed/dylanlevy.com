@@ -1,0 +1,18 @@
+<div class="moon" aria-hidden="true"></div>
+<style>
+    .moon {
+        display: none;
+        position: absolute;
+        top: 140px;
+        right: 10%;
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        box-shadow: -18px 9px 0 0 #f8e7b4;
+        transform: rotate(-20deg);
+    }
+
+    :global(:root.dark) .moon {
+        display: block;
+    }
+</style>

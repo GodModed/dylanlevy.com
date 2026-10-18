@@ -46,4 +46,8 @@ const rays = Array.from({ length: 12 }, (_, index) => index * 30);
     height: auto;
     filter: drop-shadow(0 0 16px rgb(251 191 36 / 0.45));
   }
+
+  :global(:root.dark) .sun {
+    display: none;
+  }
 </style>
