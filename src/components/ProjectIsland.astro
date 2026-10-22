@@ -1,0 +1,134 @@
+---
+type Props = {
+  name: string;
+  date?: string;
+  description: string;
+  href?: string;
+  label?: string;
+};
+
+const { name, date, description, href, label = "Project" } = Astro.props;
+const Tag = href ? "a" : "article";
+const parsedDate = new Date(`${date ?? ""}T12:00:00Z`);
+const displayDate = Number.isNaN(parsedDate.getTime()) ? date : parsedDate.toLocaleDateString("en-US", {
+  month: "short", day: "numeric", year: "numeric", timeZone: "UTC",
+});
+---
+
+<Tag class="project-island" href={href} tabindex={href ? undefined : 0}>
+  <div class="land">
+    <svg class="palm" viewBox="0 0 100 100" width="72" height="72" aria-hidden="true">
+      <path d="M48 90Q62 57 50 30" fill="none" stroke="#966640" stroke-width="9" />
+      <path d="M50 32Q15 3 5 38Q28 21 50 32M50 32Q18 32 12 61Q29 44 50 32M50 32Q70 1 95 26Q71 18 50 32M50 32Q89 29 94 57Q73 40 50 32M50 32Q40 1 60 4Q65 19 50 32" fill="#397849" />
+      <ellipse cx="50" cy="93" rx="23" ry="4" fill="#d9bd82" />
+    </svg>
+    <span class="label">{label}</span>
+    <h3>{name}</h3>
+    {date && <time datetime={date}>{displayDate}</time>}
+    <p>{description}</p>
+    {href && <span class="visit">Explore project <span aria-hidden="true">↗</span></span>}
+  </div>
+  <div class="earth" aria-hidden="true"></div>
+</Tag>
+
+<style>
+  .project-island {
+    display: block;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    color: #243b32;
+    text-decoration: none;
+    filter: drop-shadow(0 16px 12px rgb(30 64 90 / 0.2));
+    transition: transform 250ms ease, filter 250ms ease;
+  }
+
+  .project-island:hover,
+  .project-island:focus-visible {
+    transform: translateY(-12px) rotate(-2deg);
+    filter: drop-shadow(0 26px 16px rgb(30 64 90 / 0.3));
+  }
+
+  .project-island:focus-visible {
+    outline: 3px solid #166534;
+    outline-offset: 8px;
+    border-radius: 32px;
+  }
+
+  .land {
+    position: relative;
+    z-index: 1;
+    padding: 24px 32px 32px;
+    border: 8px solid #86b96b;
+    border-bottom-color: #63994e;
+    border-radius: 50% 50% 35% 35% / 65px 65px 28px 28px;
+    background: radial-gradient(ellipse at 50% 40%, #fff0ca, #f5e4b7 70%, #e5cb92);
+  }
+
+  .palm {
+    display: inline-block;
+    margin-top: -52px;
+    transform-origin: bottom center;
+    transition: transform 250ms ease;
+  }
+
+  .label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: #52624a;
+    margin-top: 8px;
+  }
+
+  .project-island:hover .palm,
+  .project-island:focus-visible .palm {
+    transform: rotate(12deg);
+  }
+
+  h3 {
+    margin: 8px 0;
+    font-size: 1.4rem;
+    overflow-wrap: anywhere;
+  }
+
+  time {
+    font-size: 0.85rem;
+    color: #52624a;
+  }
+
+  p {
+    margin: 16px 0 0;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
+
+  .visit {
+    display: inline-block;
+    margin-top: 16px;
+    font-weight: 600;
+    color: #166534;
+  }
+
+  .earth {
+    height: 110px;
+    margin: -12px 18px 0;
+    background: linear-gradient(135deg, #a77950, #684632);
+    clip-path: polygon(0 0, 100% 0, 86% 38%, 70% 51%, 56% 76%, 48% 100%, 33% 66%, 18% 49%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-island,
+    .palm {
+      transition: none;
+    }
+
+    .project-island:hover,
+    .project-island:focus-visible,
+    .project-island:hover .palm,
+    .project-island:focus-visible .palm {
+      transform: none;
+    }
+  }
+</style>

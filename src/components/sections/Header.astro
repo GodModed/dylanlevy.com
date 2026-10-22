@@ -1,7 +1,9 @@
+---
+import WordArt from "../WordArt.astro";
+---
+
 <header>
-    <a class="wordart" href="#"
-        ><span class="first">Dylan</span><span class="last">Levy</span></a
-    >
+    <WordArt />
     <nav aria-label="Main navigation">
         <ul>
             <li><a href="#about">About</a></li>
@@ -21,25 +23,7 @@
 		justify-content: space-between;
 		gap: 24px;
 	}
-    
-    .wordart {
-        font-weight: 800;
-        letter-spacing: -0.06em;
-        font-size: 1.5rem;
-        text-decoration: none;
-        transition: transform 0.2s ease-in-out;
-    }
 
-    .wordart:hover {
-        text-decoration: underline;
-        text-underline-offset: 5px;
-        text-decoration-skip-ink: none;
-        transform: scale(1.05);
-    }
-    
-    .wordart > .last {
-        font-weight: 400;
-    }
 
     nav {
         display: flex;

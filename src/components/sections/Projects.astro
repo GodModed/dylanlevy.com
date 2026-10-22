@@ -1,0 +1,71 @@
+---
+import ProjectIsland from "../ProjectIsland.astro";
+---
+
+<section class="projects" id="projects" aria-labelledby="projects-heading">
+    <div class="section-heading">
+        <h2 id="projects-heading">Projects</h2>
+    </div>
+    <div class="islands">
+        <div class="island-wrap">
+            <ProjectIsland
+                name="Fantasy Roulette"
+                description="A real-time multiplayer fantasy-football drafting app. Built with React Native and a Hono backend, using server-sent events to keep lobbies, rosters, and game state synchronized across clients."
+                label="TypeScript · React Native · Hono · SSE · Docker"
+                href="https://fantasy.godmode.social"
+            />
+            <span class="island-number">01 / Real-time multiplayer</span>
+        </div>
+        <div class="island-wrap">
+            <ProjectIsland
+                name="Insta Ratio"
+                description="Shows you the people who you follow that don't follow you back on instagram."
+                href="https://godmoded.github.io/insta-ratio"
+                label="Typescript · React · Vite · TailwindCSS"
+            />
+            <span class="island-number">02 / Instagram analytics</span>
+        </div>
+    </div>
+</section>
+
+<style>
+    .projects {
+        max-width: var(--content-width);
+        margin: auto;
+        padding: 100px 24px 125px;
+    }
+
+    .section-heading {
+        text-align: center;
+        margin-bottom: 64px;
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+    }
+
+    .islands {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 64px;
+        align-items: start;
+    }
+
+    @media (max-width: 760px) {
+        .islands {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .island-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .island-number {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--color-muted);
+    }
+</style>

@@ -5,10 +5,10 @@ import CloudCurtain from "../components/CloudCurtain.astro";
 import Header from "../components/sections/Header.astro";
 import Hero from "../components/sections/Hero.astro";
 import Layout from "../layouts/Layout.astro";
-import Break from "../components/Break.astro";
 import Contact from "../components/sections/Contact.astro";
-import Cloud from "../components/Cloud.astro";
 import Scenery from "../components/sections/Scenery.astro";
+import Footer from "../components/sections/Footer.astro";
+import Projects from "../components/sections/Projects.astro";
 ---
 
 <Layout
@@ -18,10 +18,15 @@ import Scenery from "../components/sections/Scenery.astro";
 	<Scenery />
 
 	<Header />
-	<Hero />
-	<!-- <Break /> -->
-	<About />
-	<Education />
-	<Contact />
+	<main id="main">
+		<Hero />
+		<Projects />
+		<About />
+		<Education />
+		<Contact />
+	</main>
+
+	<Footer />
+
 	<CloudCurtain duration={2.5} />
 </Layout>
