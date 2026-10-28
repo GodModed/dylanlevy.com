@@ -1,16 +1,11 @@
 ---
+import NavigationLinks from "../NavigationLinks.astro";
 import WordArt from "../WordArt.astro";
 ---
 
 <header>
     <WordArt />
-    <nav aria-label="Main navigation">
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <NavigationLinks />
 </header>
 
 <style>
@@ -25,29 +20,4 @@ import WordArt from "../WordArt.astro";
 	}
 
 
-    nav {
-        display: flex;
-        align-items: center;
-        gap: 28px;
-        font-size: 0.85rem;
-    }
-
-    nav ul {
-        display: flex;
-        gap: 28px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    nav a,
-    footer a {
-        text-decoration: none;
-    }
-    nav a:hover,
-    footer a:hover {
-        text-decoration: underline;
-        text-underline-offset: 5px;
-        text-decoration-skip-ink: none;
-    }
 </style>

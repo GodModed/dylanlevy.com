@@ -1,16 +1,11 @@
 ---
+import NavigationLinks from "../NavigationLinks.astro";
 import WordArt from "../WordArt.astro";
 ---
 
 <footer>
     <WordArt />
-    <div class="footer-links">
-        <a href="#">Home</a>
-
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </div>
+    <NavigationLinks layout="vertical" includeHome label="Footer navigation" />
     <div class="footer-info">
         <p>Made with <a href="https://astro.build/">Astro</a> and ❤️</p>
         <p>&copy; 2026 Dylan Levy. All rights reserved.</p>

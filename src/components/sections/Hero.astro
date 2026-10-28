@@ -1,3 +1,7 @@
+---
+import PrimaryLink from "../PrimaryLink.astro";
+---
+
 <section class="hero" aria-label="Hero Heading">
     <div class="location fade-in">
         <span>📍</span> Cleveland, OH • Ohio State • Class of 2029
@@ -9,9 +13,7 @@
         Computer Science Engineering student at The Ohio State University. <br class="hidden-sm"/>
         Building for the web, mobile, and everything I'm curious about.
     </p>
-    <a class="primary-link fade-in" href="#projects"
-        >Explore projects <span aria-hidden="true">↓</span></a
-    >
+    <PrimaryLink href="#projects" arrow="↓" class="fade-in">Explore projects</PrimaryLink>
 </section>
 
 <style>
@@ -76,23 +78,6 @@
         line-height: 1.8;
     }
 
-    .primary-link {
-        display: inline-flex;
-        gap: 24px;
-        padding: 15px 24px;
-        margin-top: 18px;
-        background: var(--color-ink);
-        color: var(--color-sky);
-        border-radius: 999px;
-        text-decoration: none;
-        font-size: 0.85rem;
-        transition: transform 200ms;
-    }
-
-    .primary-link:hover {
-        transform: translateY(-2px);
-    }
-    
     @media (max-width: 600px) {
         .hidden-sm {
             display: none;

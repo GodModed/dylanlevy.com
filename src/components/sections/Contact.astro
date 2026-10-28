@@ -1,11 +1,14 @@
+---
+import PrimaryLink from "../PrimaryLink.astro";
+---
+
 <section class="contact" id="contact" aria-labelledby="contact-heading">
     <h1 id="contact-heading">Let's Build Something Together</h1>
     <p>
         Let's connect! I'm always open to discussing new opportunities,
         collaborations, or just having a chat about technology and development.
-    </p><a class="primary-link" href="mailto:djlevy26@gmail.com"
-        >djlevy26@gmail.com <span aria-hidden="true">↗</span></a
-    >
+    </p>
+    <PrimaryLink href="mailto:djlevy26@gmail.com" lift={3} marginTop={24}>djlevy26@gmail.com</PrimaryLink>
     <div class="links">
          <a href="https://github.com/GodModed">
             <p>GitHub</p>
@@ -32,27 +35,6 @@
         line-height: 1.8;
     }
 
-    .contact a {
-        display: inline-block;
-        margin-top: 24px;
-    }
-
-    .primary-link {
-        display: inline-flex;
-        gap: 24px;
-        padding: 15px 24px;
-        margin-top: 18px;
-        background: var(--color-ink);
-        color: var(--color-sky);
-        border-radius: 999px;
-        text-decoration: none;
-        font-size: 0.85rem;
-        transition: transform 200ms;
-    }
-    .primary-link:hover {
-        transform: translateY(-3px);
-    }
-
     .links {
         display: flex;
         justify-content: center;
@@ -60,6 +42,8 @@
     }
 
     .links a {
+        display: inline-block;
+        margin-top: 24px;
         color: var(--color-ink);
         text-decoration: none;
         font-size: 0.85rem;
