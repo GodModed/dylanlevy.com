@@ -1,0 +1,41 @@
+---
+type Props = {
+    layout?: "horizontal" | "vertical";
+    includeHome?: boolean;
+    label?: string;
+};
+
+const { layout = "horizontal", includeHome = false, label = "Main navigation" } = Astro.props;
+const links = [
+    ...(includeHome ? [{ href: "#", text: "Home" }] : []),
+    { href: "#about", text: "About" },
+    { href: "#projects", text: "Projects" },
+    { href: "#contact", text: "Contact" },
+];
+---
+
+<nav aria-label={label} class:list={[layout]}>
+    <ul>
+        {links.map(({ href, text }) => <li><a href={href}>{text}</a></li>)}
+    </ul>
+</nav>
+
+<style>
+    nav { font-size: 0.85rem; }
+    ul {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .vertical { font-size: inherit; }
+    .vertical ul { flex-direction: column; align-items: center; gap: 0; }
+    .vertical a { display: inline-block; margin: 8px 0; }
+    a { text-decoration: none; }
+    a:hover {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+        text-decoration-skip-ink: none;
+    }
+</style>

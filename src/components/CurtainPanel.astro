@@ -1,0 +1,146 @@
+---
+import Cloud from "./Cloud.astro";
+type Props = {
+    side: "left" | "right";
+    clouds: Record<string, string>[];
+    raindrops: Record<string, string>[];
+    lightningPath: string;
+    branchPath: string;
+};
+const { side, clouds, raindrops, lightningPath, branchPath } = Astro.props;
+---
+
+<div class:list={["curtain-panel", side]}>
+    {clouds.map((style) => (
+      <div class="edge-cloud" style={style}><Cloud color="var(--cloud-tone)" /></div>
+    ))}
+    <div class="rain">
+      {raindrops.map((style) => <span class="raindrop" style={style}></span>)}
+    </div>
+    <svg class="lightning" viewBox="0 0 100 200" fill="none">
+      <path d={lightningPath} />
+      <path class="branch" d={branchPath} />
+    </svg>
+  </div>
+
+<style>
+  .curtain-panel {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--curtain-color), #cbd5e1 25%),
+      var(--curtain-color) 45%,
+      color-mix(in srgb, var(--curtain-color), #1e293b 40%)
+    );
+    animation: open-curtain var(--duration) cubic-bezier(0.4, 0.25, 0.3, 1) both;
+  }
+
+  .left {
+    left: 0;
+    --travel: calc(-100% - 30vmax);
+  }
+
+  .right {
+    right: 0;
+    --travel: calc(100% + 30vmax);
+  }
+
+  .edge-cloud {
+    position: absolute;
+    top: var(--top);
+    width: 45vmax;
+    transform: translate(-50%, -50%) rotate(var(--rotation));
+  }
+
+  .left .edge-cloud {
+    left: 100%;
+  }
+
+  .right .edge-cloud {
+    left: 0;
+  }
+
+  .edge-cloud :global(.cloud) {
+    width: 100%;
+  }
+
+  .edge-cloud :global(svg) {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 8px rgb(15 23 42 / 0.3));
+  }
+
+  @keyframes open-curtain {
+    from { transform: translateX(0); }
+    to { transform: translateX(var(--travel)); }
+  }
+
+  .lightning {
+    position: absolute;
+    top: 5%;
+    left: 25%;
+    width: 45%;
+    height: 70%;
+    opacity: 0;
+    stroke: #e0f2fe;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 6px #7dd3fc) drop-shadow(0 0 18px #bae6fd);
+    animation: lightning-flash var(--duration) linear both;
+  }
+
+  .lightning .branch {
+    stroke-width: 1;
+  }
+
+  .right .lightning {
+    animation-name: lightning-flash-right;
+  }
+
+  @keyframes lightning-flash {
+    0%, 7%, 13%, 100% { opacity: 0; }
+    8%, 11% { opacity: 1; }
+  }
+
+  @keyframes lightning-flash-right {
+    0%, 20%, 26%, 100% { opacity: 0; }
+    21%, 24% { opacity: 1; }
+  }
+
+  .rain {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .raindrop {
+    position: absolute;
+    left: var(--rain-left);
+    top: var(--rain-top);
+    width: 2px;
+    height: 28px;
+    border-radius: 999px;
+    background: linear-gradient(transparent, rgb(186 230 253 / 0.7));
+    animation: rainfall var(--rain-speed) linear var(--rain-delay) infinite;
+  }
+
+  @keyframes rainfall {
+    from {
+      opacity: 0;
+      transform: translate(0, -80px) rotate(12deg);
+    }
+    15%, 80% {
+      opacity: 0.8;
+    }
+    to {
+      opacity: 0;
+      transform: translate(-40px, 160px) rotate(12deg);
+    }
+  }
+
+</style>
