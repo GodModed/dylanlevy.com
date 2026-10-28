@@ -12,6 +12,7 @@ const {
 } = Astro.props;
 const links = [
   ...(includeHome ? [{ href: "#", text: "Home" }] : []),
+  { href: "/Resume.pdf", text: "Resume" },
   { href: "#about", text: "About" },
   { href: "#projects", text: "Projects" },
   { href: "#contact", text: "Contact" },
