@@ -1,5 +1,6 @@
 ---
 import "@fontsource/inter";
+import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 
 type Props = {
   title: string;
@@ -24,6 +25,7 @@ const { title, description } = Astro.props;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:card" content="summary_large_image" />
     <title>{title}</title>
+	<GoogleAnalytics />
   </head>
   <body>
     <slot />
