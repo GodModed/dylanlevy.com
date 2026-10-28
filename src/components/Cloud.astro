@@ -1,5 +1,4 @@
 ---
-
 type Props = {
   color?: string;
   size?: number;
@@ -7,7 +6,11 @@ type Props = {
 const { color = "white", size } = Astro.props;
 const cloudWidth = size === undefined ? "100%" : `${size}px`;
 
-const matches = import.meta.glob('../assets/clouds/*.svg', { eager: true, query: "raw", import: "default" });
+const matches = import.meta.glob("../assets/clouds/*.svg", {
+  eager: true,
+  query: "raw",
+  import: "default",
+});
 const clouds = Object.values(matches);
 const randomCloud = clouds[Math.floor(Math.random() * clouds.length)] as any;
 const hasContent = Astro.slots.has("default");
@@ -17,13 +20,15 @@ const cloudShape = hasContent
 ---
 
 <div class:list={["cloud", { "has-content": hasContent }]}>
-  <div class="cloud-shape" set:html={cloudShape}></div>
+  <div class="cloud-shape" set:html={cloudShape} />
   {hasContent && (
-    <div class="cloud-content"><slot /></div>
+    <div class="cloud-content">
+      <slot />
+    </div>
   )}
 </div>
 
-<style define:vars={{color, cloudWidth}}>
+<style define:vars={{ color, cloudWidth }}>
   .cloud {
     position: relative;
     width: var(--cloudWidth);

@@ -25,12 +25,20 @@ const raindrops = Array.from({ length: 45 }, () => ({
   aria-hidden="true"
   style={{ "--curtain-color": color, "--duration": `${duration}s` }}
 >
-  <CurtainPanel side="left" {clouds} {raindrops}
+  <CurtainPanel
+    side="left"
+    {clouds}
+    {raindrops}
     lightningPath="M60 0 35 65 58 60 25 125 48 117 20 200"
-    branchPath="M37 101 72 120 80 151" />
-  <CurtainPanel side="right" {clouds} {raindrops}
+    branchPath="M37 101 72 120 80 151"
+  />
+  <CurtainPanel
+    side="right"
+    {clouds}
+    {raindrops}
     lightningPath="M40 0 65 55 42 70 75 128 52 120 80 200"
-    branchPath="M61 103 25 130 15 160" />
+    branchPath="M61 103 25 130 15 160"
+  />
 </div>
 
 <style>

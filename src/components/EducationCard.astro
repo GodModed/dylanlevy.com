@@ -1,49 +1,48 @@
 ---
-type Props = { dateLocation: string; school: string; qualification: string; };
+type Props = { dateLocation: string; school: string; qualification: string };
 const { dateLocation, school, qualification } = Astro.props;
 ---
 
 <article class="card">
-    <span class="entry-date">{dateLocation}</span>
-    <h3>{school}</h3>
-    <p class="role">{qualification}</p>
-    <slot />
+  <span class="entry-date">{dateLocation}</span>
+  <h3>{school}</h3>
+  <p class="role">{qualification}</p>
+  <slot />
 </article>
 
 <style>
-    .card {
-		padding: 28px;
-		border: 1px solid var(--color-line);
-		border-radius: 24px;
-		background: rgb(255 255 255 / 0.07);
-	}
+  .card {
+    padding: 28px;
+    border: 1px solid var(--color-line);
+    border-radius: 24px;
+    background: rgb(255 255 255 / 0.07);
+  }
 
-    .card h3 {
-		margin: 12px 0;
-		font-size: 1.1rem;
-		letter-spacing: -0.03em;
-	}
-	.card :global(p),
-	.card :global(li) {
-		color: var(--color-muted);
-		font-size: 0.875rem;
-		line-height: 1.8;
-	}
-	.card .role {
-		color: var(--color-ink);
-		font-weight: 500;
-	}
-	.card :global(ul) {
-		padding-left: 18px;
-		margin-bottom: 0;
-	}
-	.card :global(li + li) {
-		margin-top: 8px;
-	}
-	.entry-date {
-		color: var(--color-muted);
-		font-size: 0.75rem;
-		line-height: 1.6;
-	}
-
+  .card h3 {
+    margin: 12px 0;
+    font-size: 1.1rem;
+    letter-spacing: -0.03em;
+  }
+  .card :global(p),
+  .card :global(li) {
+    color: var(--color-muted);
+    font-size: 0.875rem;
+    line-height: 1.8;
+  }
+  .card .role {
+    color: var(--color-ink);
+    font-weight: 500;
+  }
+  .card :global(ul) {
+    padding-left: 18px;
+    margin-bottom: 0;
+  }
+  .card :global(li + li) {
+    margin-top: 8px;
+  }
+  .entry-date {
+    color: var(--color-muted);
+    font-size: 0.75rem;
+    line-height: 1.6;
+  }
 </style>

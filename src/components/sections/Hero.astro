@@ -3,85 +3,109 @@ import PrimaryLink from "../PrimaryLink.astro";
 ---
 
 <section class="hero" aria-label="Hero Heading">
-    <div class="location fade-in">
-        <span>📍</span> Cleveland, OH • Ohio State • Class of 2029
-    </div>
-    <h1>
-        Hi, I'm Dylan <br />I turn ideas into <em>reality.</em>
-    </h1>
-    <p class="intro fade-in">
-        Computer Science Engineering student at The Ohio State University. <br class="hidden-sm"/>
-        Building for the web, mobile, and everything I'm curious about.
-    </p>
-    <PrimaryLink href="#projects" arrow="↓" class="fade-in">Explore projects</PrimaryLink>
+  <div class="location fade-in">
+    <span>📍</span> Cleveland, OH • Ohio State • Class of 2029
+  </div>
+  <h1>
+    Hi, I'm Dylan <br />I turn ideas into <em>reality.</em>
+  </h1>
+  <p class="intro fade-in">
+    Computer Science Engineering student at The Ohio State University.{" "}
+    <br class="hidden-sm" />
+    Building for the web, mobile, and everything I'm curious about.
+  </p>
+  <PrimaryLink href="#projects" arrow="↓" class="fade-in">
+    Explore projects
+  </PrimaryLink>
 </section>
 
 <style>
+  .hero {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    padding: 100px 24px 125px;
+  }
 
-    .hero {
-        text-align: center;
-        max-width: 800px;
-        margin: auto;
-        padding: 100px 24px 125px;
+  .location {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--color-muted);
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 24px 0;
+    font-weight: 700;
+  }
+
+  h1 em {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    position: relative;
+    display: inline-block;
+    /* background: #f5d28e; */
+  }
+
+  h1 em::before {
+    content: "";
+    background: #f5d28e;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    clip-path: polygon(
+      1% 20%,
+      7% 13%,
+      18% 16%,
+      29% 8%,
+      41% 12%,
+      53% 5%,
+      65% 10%,
+      78% 4%,
+      91% 8%,
+      99% 17%,
+      96% 30%,
+      100% 43%,
+      95% 56%,
+      98% 69%,
+      91% 78%,
+      81% 75%,
+      70% 84%,
+      58% 78%,
+      46% 88%,
+      34% 81%,
+      22% 91%,
+      12% 84%,
+      3% 90%,
+      5% 76%,
+      0% 63%,
+      4% 50%,
+      1% 37%,
+      5% 28%
+    );
+    transform: scale(0);
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  h1 em:hover::before {
+    transform: scale(1);
+  }
+
+  .intro {
+    font-size: 1rem;
+    color: var(--color-muted);
+    line-height: 1.8;
+  }
+
+  @media (max-width: 600px) {
+    .hidden-sm {
+      display: none;
     }
-
-    .location {
-        display: block;
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        font-weight: 700;
-        letter-spacing: 0.2em;
-        color: var(--color-muted);
-    }
-
-    h1 {
-        font-size: clamp(2.5rem, 6vw, 4rem);
-        letter-spacing: -0.02em;
-        line-height: 1.1;
-        margin: 24px 0;
-        font-weight: 700;
-    }
-
-    h1 em {
-        font-family: Georgia, serif;
-        font-weight: 400;
-        position: relative;
-        display: inline-block;
-        /* background: #f5d28e; */
-    }
-
-    h1 em::before {
-        content: "";
-        background: #f5d28e;
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-        clip-path: polygon(
-            1% 20%, 7% 13%, 18% 16%, 29% 8%, 41% 12%, 53% 5%,
-            65% 10%, 78% 4%, 91% 8%, 99% 17%, 96% 30%, 100% 43%,
-            95% 56%, 98% 69%, 91% 78%, 81% 75%, 70% 84%, 58% 78%,
-            46% 88%, 34% 81%, 22% 91%, 12% 84%, 3% 90%, 5% 76%,
-            0% 63%, 4% 50%, 1% 37%, 5% 28%
-        );
-        transform: scale(0);
-        transform-origin: center;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    h1 em:hover::before {
-        transform: scale(1);
-    }
-
-    .intro {
-        font-size: 1rem;
-        color: var(--color-muted);
-        line-height: 1.8;
-    }
-
-    @media (max-width: 600px) {
-        .hidden-sm {
-            display: none;
-        }
-    }
-
+  }
 </style>

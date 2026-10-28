@@ -1,27 +1,31 @@
 ---
 import Cloud from "./Cloud.astro";
 type Props = {
-    side: "left" | "right";
-    clouds: Record<string, string>[];
-    raindrops: Record<string, string>[];
-    lightningPath: string;
-    branchPath: string;
+  side: "left" | "right";
+  clouds: Record<string, string>[];
+  raindrops: Record<string, string>[];
+  lightningPath: string;
+  branchPath: string;
 };
 const { side, clouds, raindrops, lightningPath, branchPath } = Astro.props;
 ---
 
 <div class:list={["curtain-panel", side]}>
-    {clouds.map((style) => (
-      <div class="edge-cloud" style={style}><Cloud color="var(--cloud-tone)" /></div>
-    ))}
-    <div class="rain">
-      {raindrops.map((style) => <span class="raindrop" style={style}></span>)}
+  {clouds.map((style) => (
+    <div class="edge-cloud" style={style}>
+      <Cloud color="var(--cloud-tone)" />
     </div>
-    <svg class="lightning" viewBox="0 0 100 200" fill="none">
-      <path d={lightningPath} />
-      <path class="branch" d={branchPath} />
-    </svg>
+  ))}
+  <div class="rain">
+    {raindrops.map((style) => (
+      <span class="raindrop" style={style}></span>
+    ))}
   </div>
+  <svg class="lightning" viewBox="0 0 100 200" fill="none">
+    <path d={lightningPath} />
+    <path class="branch" d={branchPath} />
+  </svg>
+</div>
 
 <style>
   .curtain-panel {
@@ -75,8 +79,12 @@ const { side, clouds, raindrops, lightningPath, branchPath } = Astro.props;
   }
 
   @keyframes open-curtain {
-    from { transform: translateX(0); }
-    to { transform: translateX(var(--travel)); }
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(var(--travel));
+    }
   }
 
   .lightning {
@@ -103,13 +111,29 @@ const { side, clouds, raindrops, lightningPath, branchPath } = Astro.props;
   }
 
   @keyframes lightning-flash {
-    0%, 7%, 13%, 100% { opacity: 0; }
-    8%, 11% { opacity: 1; }
+    0%,
+    7%,
+    13%,
+    100% {
+      opacity: 0;
+    }
+    8%,
+    11% {
+      opacity: 1;
+    }
   }
 
   @keyframes lightning-flash-right {
-    0%, 20%, 26%, 100% { opacity: 0; }
-    21%, 24% { opacity: 1; }
+    0%,
+    20%,
+    26%,
+    100% {
+      opacity: 0;
+    }
+    21%,
+    24% {
+      opacity: 1;
+    }
   }
 
   .rain {
@@ -134,7 +158,8 @@ const { side, clouds, raindrops, lightningPath, branchPath } = Astro.props;
       opacity: 0;
       transform: translate(0, -80px) rotate(12deg);
     }
-    15%, 80% {
+    15%,
+    80% {
       opacity: 0.8;
     }
     to {
@@ -142,5 +167,4 @@ const { side, clouds, raindrops, lightningPath, branchPath } = Astro.props;
       transform: translate(-40px, 160px) rotate(12deg);
     }
   }
-
 </style>

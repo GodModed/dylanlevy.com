@@ -1,35 +1,44 @@
 ---
 type Props = {
-    href: string;
-    arrow?: string;
-    class?: string;
-    lift?: number;
-    marginTop?: number;
+  href: string;
+  arrow?: string;
+  class?: string;
+  lift?: number;
+  marginTop?: number;
 };
 
-const { href, arrow = "↗", class: className, lift = 2, marginTop = 18 } = Astro.props;
+const {
+  href,
+  arrow = "↗",
+  class: className,
+  lift = 2,
+  marginTop = 18,
+} = Astro.props;
 ---
 
-<a class:list={["primary-link", className]} href={href}
-    style={{ "--link-lift": `-${lift}px`, "--link-margin": `${marginTop}px` }}>
-    <slot /> <span aria-hidden="true">{arrow}</span>
+<a
+  class:list={["primary-link", className]}
+  href={href}
+  style={{ "--link-lift": `-${lift}px`, "--link-margin": `${marginTop}px` }}
+>
+  <slot /> <span aria-hidden="true">{arrow}</span>
 </a>
 
 <style>
-    .primary-link {
-        display: inline-flex;
-        gap: 24px;
-        padding: 15px 24px;
-        margin-top: var(--link-margin);
-        background: var(--color-ink);
-        color: var(--color-sky);
-        border-radius: 999px;
-        text-decoration: none;
-        font-size: 0.85rem;
-        transition: transform 200ms;
-    }
+  .primary-link {
+    display: inline-flex;
+    gap: 24px;
+    padding: 15px 24px;
+    margin-top: var(--link-margin);
+    background: var(--color-ink);
+    color: var(--color-sky);
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: transform 200ms;
+  }
 
-    .primary-link:hover {
-        transform: translateY(var(--link-lift));
-    }
+  .primary-link:hover {
+    transform: translateY(var(--link-lift));
+  }
 </style>

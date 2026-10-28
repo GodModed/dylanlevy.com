@@ -3,52 +3,54 @@ import Section from "../Section.astro";
 import EducationCard from "../EducationCard.astro";
 ---
 
-<Section id="education" title="Education" class="education"
-    description="My educational background and the experiences that have shaped my journey in computer science.">
-    <div class="grid">
-        <EducationCard
-            dateLocation="Expected May 2029 · Columbus, Ohio"
-            school="The Ohio State University"
-            qualification="B.S. in Computer Science Engineering · Minor in Mathematics"
-        >
-            <p>
-                Relevant coursework: Software I, Digital Logic, Engineering
-                Fundamentals, and Linear Algebra.
-            </p>
-        </EducationCard>
-        <EducationCard
-            dateLocation="May 2026 · Solon, Ohio"
-            school="Solon High School"
-            qualification="High School Honors Diploma"
-        >
-            <p>
-                GPA: 4.3 weighted / 3.7 unweighted.
-            </p>
-            <p>
-                Honor Roll (2023, 2024, 2025, 2026), AP Scholar with Distinction
-                (2025, 2026), Varsity Letter (2024, 2025, 2026), and National
-                Recognition (2025).
-            </p>
-        </EducationCard>
-    </div>
+<Section
+  id="education"
+  title="Education"
+  class="education"
+  description="My educational background and the experiences that have shaped my journey in computer science."
+>
+  <div class="grid">
+    <EducationCard
+      dateLocation="Expected May 2029 · Columbus, Ohio"
+      school="The Ohio State University"
+      qualification="B.S. in Computer Science Engineering · Minor in Mathematics"
+    >
+      <p>
+        Relevant coursework: Software I, Digital Logic, Engineering
+        Fundamentals, and Linear Algebra.
+      </p>
+    </EducationCard>
+    <EducationCard
+      dateLocation="May 2026 · Solon, Ohio"
+      school="Solon High School"
+      qualification="High School Honors Diploma"
+    >
+      <p>GPA: 4.3 weighted / 3.7 unweighted.</p>
+      <p>
+        Honor Roll (2023, 2024, 2025, 2026), AP Scholar with Distinction (2025,
+        2026), Varsity Letter (2024, 2025, 2026), and National Recognition
+        (2025).
+      </p>
+    </EducationCard>
+  </div>
 </Section>
 
 <style>
-    .education {
-        --section-padding: 0 40px;
-        margin-bottom: 80px;
-    }
+  .education {
+    --section-padding: 0 40px;
+    margin-bottom: 80px;
+  }
 
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  @media (max-width: 700px) {
     .grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 24px;
-        margin-top: 32px;
+      grid-template-columns: 1fr;
     }
-
-    @media (max-width: 700px) {
-        .grid {
-            grid-template-columns: 1fr;
-        }
-    }
+  }
 </style>

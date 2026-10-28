@@ -3,54 +3,59 @@ import Section from "../Section.astro";
 import PrimaryLink from "../PrimaryLink.astro";
 ---
 
-<Section id="contact" title="Let's Build Something Together" class="contact"
-    description="Let's connect! I'm always open to discussing new opportunities, collaborations, or just having a chat about technology and development.">
-    <PrimaryLink href="mailto:djlevy26@gmail.com" lift={3} marginTop={24}>djlevy26@gmail.com</PrimaryLink>
-    <div class="links">
-         <a href="https://github.com/GodModed">
-            <p>GitHub</p>
-        </a>
-        <a href="https://www.linkedin.com/in/dylan-levy-1a8994300/">
-            <p>LinkedIn</p>
-        </a>
-    </div>
+<Section
+  id="contact"
+  title="Let's Build Something Together"
+  class="contact"
+  description="Let's connect! I'm always open to discussing new opportunities, collaborations, or just having a chat about technology and development."
+>
+  <PrimaryLink href="mailto:djlevy26@gmail.com" lift={3} marginTop={24}>
+    djlevy26@gmail.com
+  </PrimaryLink>
+  <div class="links">
+    <a href="https://github.com/GodModed">
+      <p>GitHub</p>
+    </a>
+    <a href="https://www.linkedin.com/in/dylan-levy-1a8994300/">
+      <p>LinkedIn</p>
+    </a>
+  </div>
 </Section>
 
 <style>
-    .contact {
-        --section-padding: 64px 24px 0;
-        margin-bottom: 60px;
-        text-align: center;
-        border-top: 1px solid var(--color-line);
-    }
+  .contact {
+    --section-padding: 64px 24px 0;
+    margin-bottom: 60px;
+    text-align: center;
+    border-top: 1px solid var(--color-line);
+  }
 
-    .contact p {
-        color: var(--color-muted);
-        line-height: 1.8;
-    }
+  .contact p {
+    color: var(--color-muted);
+    line-height: 1.8;
+  }
 
-    .links {
-        display: flex;
-        justify-content: center;
-        gap: 24px;
-    }
+  .links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+  }
 
-    .links a {
-        display: inline-block;
-        margin-top: 24px;
-        color: var(--color-ink);
-        text-decoration: none;
-        font-size: 0.85rem;
-        transition: transform 200ms;
-    }
+  .links a {
+    display: inline-block;
+    margin-top: 24px;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: transform 200ms;
+  }
 
-    .links a p {
-        margin: 0;
-        font-size: 0.85rem;
-    }
+  .links a p {
+    margin: 0;
+    font-size: 0.85rem;
+  }
 
-    .links a:hover {
-        transform: translateY(-3px);
-    }
-
+  .links a:hover {
+    transform: translateY(-3px);
+  }
 </style>

@@ -3,82 +3,91 @@ import Section from "../Section.astro";
 import ProjectIsland from "../ProjectIsland.astro";
 
 const projects = [
-    {
-        name: "GridGuide",
-        description: "1st place winner of the American Electric Power track of the OHI/O 2026 Hackathon. Built an outage management application in 24 hours with a three-person team, featuring interactive network maps, isolation planning, and repair prioritization. Integrated a conversational AI assistant to explain restoration windows, crew dispatch status, and outage risks in plain language.",
-        label: "TypeScript · React · Hono",
-        href: "https://fantasy.godmode.social",
-        caption: "1st place AEP TRACK OHI/O 2026",
-    },
-    {
-        name: "Fantasy Roulette",
-        description: "A real-time multiplayer fantasy-football drafting app. Built with React Native and a Hono backend, using server-sent events to keep lobbies, rosters, and game state synchronized across clients.",
-        label: "TypeScript · React Native · Hono · SSE · Docker",
-        href: "https://fantasy.godmode.social",
-        caption: "Real-time multiplayer",
-    },
-    {
-        name: "Insta Ratio",
-        description: "Shows you the people who you follow that don't follow you back on instagram.",
-        href: "https://godmoded.github.io/insta-ratio",
-        label: "Typescript · React · Vite · TailwindCSS",
-        caption: "Instagram analytics",
-    },
+  {
+    name: "GridGuide",
+    description:
+      "1st place winner of the American Electric Power track of the OHI/O 2026 Hackathon. Built an outage management application in 24 hours with a three-person team, featuring interactive network maps, isolation planning, and repair prioritization. Integrated a conversational AI assistant to explain restoration windows, crew dispatch status, and outage risks in plain language.",
+    label: "TypeScript · React · Hono",
+    href: "https://fantasy.godmode.social",
+    caption: "1st place AEP TRACK OHI/O 2026",
+  },
+  {
+    name: "Fantasy Roulette",
+    description:
+      "A real-time multiplayer fantasy-football drafting app. Built with React Native and a Hono backend, using server-sent events to keep lobbies, rosters, and game state synchronized across clients.",
+    label: "TypeScript · React Native · Hono · SSE · Docker",
+    href: "https://fantasy.godmode.social",
+    caption: "Real-time multiplayer",
+  },
+  {
+    name: "Insta Ratio",
+    description:
+      "Shows you the people who you follow that don't follow you back on instagram.",
+    href: "https://godmoded.github.io/insta-ratio",
+    label: "Typescript · React · Vite · TailwindCSS",
+    caption: "Instagram analytics",
+  },
 ];
 ---
 
 <Section id="projects" title="Projects" class="projects">
-    <div class="islands">
-        {projects.map(({ caption, ...project }) => (
-            <div class="island-wrap">
-                <ProjectIsland {...project} />
-                <span class="island-number">{caption}</span>
-            </div>
-        ))}
-    </div>
+  <div class="islands">
+    {projects.map(({ caption, ...project }) => (
+      <div class="island-wrap">
+        <ProjectIsland {...project} />
+        <span class="island-number">{caption}</span>
+      </div>
+    ))}
+  </div>
 </Section>
 
 <style>
-    .projects {
-        --section-padding: 100px 24px 125px;
-        --section-heading-gap: 64px;
-    }
+  .projects {
+    --section-padding: 100px 24px 125px;
+    --section-heading-gap: 64px;
+  }
 
-    .projects :global(h2) {
-        text-align: center;
-    }
+  .projects :global(h2) {
+    text-align: center;
+  }
 
+  .islands {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 64px;
+    align-items: start;
+  }
+
+  .islands > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc((100% - 64px) / 2);
+  }
+
+  @media (max-width: 760px) {
     .islands {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 64px;
-        align-items: start;
+      grid-template-columns: 1fr;
     }
 
     .islands > :last-child:nth-child(odd) {
-        grid-column: 1 / -1;
-        justify-self: center;
-        width: calc((100% - 64px) / 2);
+      grid-column: 1 / -1;
+      justify-self: center;
+      width: 100%;
     }
+  }
 
-    @media (max-width: 760px) {
-        .islands {
-            grid-template-columns: 1fr;
-        }
-    }
+  .island-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
 
-    .island-wrap {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-    }
-
-    .island-number {
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
-        color: var(--color-muted);
-    }
+  .island-number {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-muted);
+  }
 </style>
