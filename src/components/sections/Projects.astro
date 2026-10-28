@@ -9,12 +9,21 @@ import ProjectIsland from "../ProjectIsland.astro";
     <div class="islands">
         <div class="island-wrap">
             <ProjectIsland
+                name="GridGuide"
+                description="1st place winner of the American Electric Power track of the OHI/O 2026 Hackathon. Built an outage management application in 24 hours with a three-person team, featuring interactive network maps, isolation planning, and repair prioritization. Integrated a conversational AI assistant to explain restoration windows, crew dispatch status, and outage risks in plain language."
+                label="TypeScript · React · Hono"
+                href="https://fantasy.godmode.social"
+            />
+            <span class="island-number">1st place AEP TRACK OHI/O 2026</span>
+        </div>
+        <div class="island-wrap">
+            <ProjectIsland
                 name="Fantasy Roulette"
                 description="A real-time multiplayer fantasy-football drafting app. Built with React Native and a Hono backend, using server-sent events to keep lobbies, rosters, and game state synchronized across clients."
                 label="TypeScript · React Native · Hono · SSE · Docker"
                 href="https://fantasy.godmode.social"
             />
-            <span class="island-number">01 / Real-time multiplayer</span>
+            <span class="island-number">Real-time multiplayer</span>
         </div>
         <div class="island-wrap">
             <ProjectIsland
@@ -23,7 +32,7 @@ import ProjectIsland from "../ProjectIsland.astro";
                 href="https://godmoded.github.io/insta-ratio"
                 label="Typescript · React · Vite · TailwindCSS"
             />
-            <span class="island-number">02 / Instagram analytics</span>
+            <span class="island-number">Instagram analytics</span>
         </div>
     </div>
 </section>
@@ -46,6 +55,12 @@ import ProjectIsland from "../ProjectIsland.astro";
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 64px;
         align-items: start;
+    }
+
+    .islands > :last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc((100% - 64px) / 2);
     }
 
     @media (max-width: 760px) {

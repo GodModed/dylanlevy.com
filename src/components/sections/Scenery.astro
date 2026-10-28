@@ -4,8 +4,8 @@ import Moon from "../Moon.astro";
 import Sun from "../Sun.astro";
 ---
 
-<div class="scenery">
-    <div class="sun">
+<div class="scenery" aria-hidden="true">
+    <div class="sun-moon">
         <Moon color="#f8e7b4" size={75} />
         <Sun color="#fbbf24" size={140} />
     </div>
@@ -26,11 +26,13 @@ import Sun from "../Sun.astro";
         z-index: 0;
     }
 
-    .scenery .sun {
+    .scenery .sun-moon {
         position: absolute;
         top: 125px;
         right: 9%;
         width: clamp(80px, 11vw, 130px);
+        pointer-events: auto;
+        cursor: pointer;
     }
 
     .scenery .clouds {
@@ -83,3 +85,11 @@ import Sun from "../Sun.astro";
         }
     }
 </style>
+
+<script>
+    const sunmoon = document.querySelector(".sun-moon");
+
+    sunmoon?.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark");
+    });
+</script>
