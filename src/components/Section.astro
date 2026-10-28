@@ -1,0 +1,44 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"section"> & {
+    id: string;
+    title: string;
+    description?: string;
+};
+
+const { id, title, description, class: className, ...attributes } = Astro.props;
+const headingId = `${id}-heading`;
+---
+
+<section {...attributes} id={id} class:list={["section", className]} aria-labelledby={headingId}>
+    <slot name="before-heading" />
+    <slot name="heading">
+        <h2 id={headingId}>{title}</h2>
+        {description && <p class="section-description">{description}</p>}
+    </slot>
+    <slot />
+</section>
+
+<style>
+    .section {
+        width: 100%;
+        max-width: var(--section-width, var(--content-width));
+        margin: var(--section-margin, 0) auto;
+        padding: var(--section-padding, 0 24px);
+    }
+
+    h2 {
+        margin: 0 0 var(--section-heading-gap, 20px);
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        font-weight: 600;
+        letter-spacing: -0.04em;
+        line-height: 1.15;
+        text-wrap: balance;
+    }
+
+    .section-description {
+        color: var(--color-muted);
+        line-height: 1.8;
+    }
+</style>

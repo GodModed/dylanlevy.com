@@ -1,12 +1,10 @@
 ---
+import Section from "../Section.astro";
 import EducationCard from "../EducationCard.astro";
 ---
 
-<section class="education" aria-labelledby="education-heading">
-    <h1 id="education-heading">Education</h1>
-    <p>
-        My educational background and the experiences that have shaped my journey in computer science.
-    </p>
+<Section id="education" title="Education" class="education"
+    description="My educational background and the experiences that have shaped my journey in computer science.">
     <div class="grid">
         <EducationCard
             dateLocation="Expected May 2029 · Columbus, Ohio"
@@ -33,13 +31,12 @@ import EducationCard from "../EducationCard.astro";
             </p>
         </EducationCard>
     </div>
-</section>
+</Section>
 
 <style>
     .education {
-        max-width: var(--content-width);
-        padding: 0 40px;
-        margin: 0 auto 80px;
+        --section-padding: 0 40px;
+        margin-bottom: 80px;
     }
 
     .grid {

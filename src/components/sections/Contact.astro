@@ -1,13 +1,10 @@
 ---
+import Section from "../Section.astro";
 import PrimaryLink from "../PrimaryLink.astro";
 ---
 
-<section class="contact" id="contact" aria-labelledby="contact-heading">
-    <h1 id="contact-heading">Let's Build Something Together</h1>
-    <p>
-        Let's connect! I'm always open to discussing new opportunities,
-        collaborations, or just having a chat about technology and development.
-    </p>
+<Section id="contact" title="Let's Build Something Together" class="contact"
+    description="Let's connect! I'm always open to discussing new opportunities, collaborations, or just having a chat about technology and development.">
     <PrimaryLink href="mailto:djlevy26@gmail.com" lift={3} marginTop={24}>djlevy26@gmail.com</PrimaryLink>
     <div class="links">
          <a href="https://github.com/GodModed">
@@ -17,17 +14,14 @@ import PrimaryLink from "../PrimaryLink.astro";
             <p>LinkedIn</p>
         </a>
     </div>
-</section>
+</Section>
 
 <style>
     .contact {
-        padding-inline: 24px;
+        --section-padding: 64px 24px 0;
         margin-bottom: 60px;
         text-align: center;
         border-top: 1px solid var(--color-line);
-        padding-top: 64px;
-        margin-inline: auto;
-        max-width: var(--content-width);
     }
 
     .contact p {
