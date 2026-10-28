@@ -3,21 +3,22 @@ const MEASUREMENT_ID = "G-4WDE938MHP";
 
 const PROD = import.meta.env.PROD;
 ---
-{
-    PROD && (
-            <>
-      <script
-        async
-        src={`https://googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`}
-      ></script>
-      <script define:vars={{ GA_MEASUREMENT_ID: MEASUREMENT_ID }}>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', GA_MEASUREMENT_ID);
-      </script>
-    </>
-    )
-}
+
+{PROD && (
+  <>
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <script
+      async
+      src={`https://googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`}
+    ></script>
+    <script define:vars={{ GA_MEASUREMENT_ID: MEASUREMENT_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", GA_MEASUREMENT_ID);
+    </script>
+  </>
+)}
