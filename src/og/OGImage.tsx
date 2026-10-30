@@ -7,7 +7,7 @@ export default function OGImage() {
         width: "100%",
         height: "100%",
         boxSizing: "border-box",
-        padding: "32px 40px",
+        padding: "24px 40px",
         backgroundColor: "#d8eff7",
         color: "#203e51",
         fontFamily: "Inter",
@@ -16,10 +16,10 @@ export default function OGImage() {
       }}
     >
       <svg
-        width="100"
-        height="100"
+        width="90"
+        height="90"
         viewBox="0 0 120 120"
-        style={{ position: "absolute", top: 25, right: 30 }}
+        style={{ position: "absolute", top: 18, right: 25 }}
       >
         <g stroke="#fbbf24" strokeWidth="5" strokeLinecap="round">
           {Array.from({ length: 12 }, (_, index) => (
@@ -44,10 +44,10 @@ export default function OGImage() {
       </svg>
 
       <svg
-        width="250"
-        height="188"
+        width="210"
+        height="158"
         viewBox="0 0 320 240"
-        style={{ position: "absolute", right: -85, bottom: 30, opacity: 0.65 }}
+        style={{ position: "absolute", right: -80, bottom: 25, opacity: 0.65 }}
       >
         <path
           d="M77 184C49 184 30 166 30 142C30 118 49 99 73 98C76 66 100 44 130 44C157 44 180 61 187 86C194 82 202 80 211 80C235 80 254 97 258 119C279 120 294 134 294 152C294 171 279 184 259 184Z"
@@ -69,7 +69,7 @@ export default function OGImage() {
       <h1
         style={{
           display: "flex",
-          margin: "33px 0 12px",
+          margin: "24px 0 10px",
           fontSize: 56,
           letterSpacing: -3,
           lineHeight: 1,
@@ -102,10 +102,10 @@ export default function OGImage() {
         style={{
           display: "flex",
           flexDirection: "column",
-          marginTop: 22,
-          gap: 7,
+          marginTop: 16,
+          gap: 5,
           color: "#536f80",
-          fontSize: 15,
+          fontSize: 14,
           lineHeight: 1.4,
         }}
       >
@@ -121,7 +121,7 @@ export default function OGImage() {
           alignItems: "center",
           marginTop: "auto",
           borderTop: "1px solid rgba(32, 62, 81, 0.15)",
-          paddingTop: 17,
+          paddingTop: 13,
           fontSize: 12,
           color: "#536f80",
         }}

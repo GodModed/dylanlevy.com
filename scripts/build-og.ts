@@ -10,7 +10,7 @@ const inter = new URL(
 
 const svg = await satori(createElement(OGImage), {
   width: 600,
-  height: 400,
+  height: 315,
   fonts: [
     {
       name: "Inter",
@@ -32,5 +32,6 @@ const svg = await satori(createElement(OGImage), {
   ],
 });
 
+// Render the 600 × 315 layout at 2× for a sharp 1200 × 630 OG image.
 const png = await sharp(Buffer.from(svg), { density: 144 }).png().toBuffer();
 fs.writeFileSync("./public/og.png", png);
