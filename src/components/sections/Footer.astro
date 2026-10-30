@@ -50,4 +50,21 @@ import WordArt from "../WordArt.astro";
     text-underline-offset: 5px;
     text-decoration-skip-ink: none;
   }
+
+  @media (max-width: 700px) {
+    footer {
+      flex-direction: column;
+      gap: 16px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    footer > :nth-child(n + 2) {
+      flex: 0 1 auto;
+    }
+
+    .footer-info p {
+      margin: 4px 0;
+    }
+  }
 </style>
