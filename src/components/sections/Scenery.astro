@@ -70,6 +70,14 @@ import Sun from "../Sun.astro";
     animation-delay: -11s;
   }
 
+  @media (max-width: 600px) {
+    .scenery .sun-moon {
+      top: 100px;
+      right: 8%;
+      width: 64px;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .scenery .clouds > :global(*) {
       animation: none;
