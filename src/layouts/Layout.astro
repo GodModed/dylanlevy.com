@@ -1,6 +1,7 @@
 ---
 import "@fontsource/inter";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+import Lenis from "../components/Lenis.astro";
 
 type Props = {
   title: string;
@@ -130,3 +131,4 @@ const { title, description } = Astro.props;
     document.documentElement.classList.add("dark");
   }
 </script>
+<Lenis />
