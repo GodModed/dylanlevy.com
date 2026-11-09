@@ -2,6 +2,7 @@
 import "@fontsource/inter";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 import Lenis from "../components/Lenis.astro";
+import DiscordEmbed from "../components/DiscordEmbed.astro";
 
 type Props = {
   title: string;
@@ -9,6 +10,7 @@ type Props = {
 };
 
 const { title, description } = Astro.props;
+
 ---
 
 <!doctype html>
@@ -30,6 +32,7 @@ const { title, description } = Astro.props;
     <meta name="twitter:image" content="/og.png" />
     <title>{title}</title>
     <GoogleAnalytics />
+    <DiscordEmbed />
   </head>
   <body>
     <slot />

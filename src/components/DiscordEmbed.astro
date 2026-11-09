@@ -1,0 +1,18 @@
+---
+import { homepageEmbed } from "../discord/homepage";
+import type { parseDiscordEmbed } from "../discord/parser";
+
+type Props = {
+  payload?: ReturnType<typeof parseDiscordEmbed>;
+};
+
+const { payload = homepageEmbed } = Astro.props;
+const json = JSON.stringify(payload).replaceAll("<", "\\u003c");
+---
+
+<script
+  is:inline
+  id="discord:component-embed"
+  type="application/json"
+  set:html={json}
+></script>
