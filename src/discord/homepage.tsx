@@ -11,9 +11,7 @@ import {
 
 export const homepageEmbed = parseDiscordEmbed(
   <Container accentColor={0x203e51}>
-    <TextDisplay
-      content={"-# 📍 Cleveland, OH · Ohio State · Class of 2029"}
-    />
+    <TextDisplay content={"-# 📍 Cleveland, OH · Ohio State · Class of 2029"} />
     <TextDisplay
       content={
         "# Hi, I'm Dylan\nI turn ideas into *reality.*\n\nComputer Science Engineering student at The Ohio State University, pursuing a minor in Mathematics. Building for the web, mobile, and everything I'm curious about."

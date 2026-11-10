@@ -10,7 +10,7 @@ export default defineConfig({
   integrations: [react()],
   vite: {
     server: {
-      allowedHosts: true
-    }
-  }
+      allowedHosts: true,
+    },
+  },
 });
