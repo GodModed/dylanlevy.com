@@ -8,4 +8,9 @@ export default defineConfig({
   site: "https://dylanlevy.com",
   base: "/",
   integrations: [react()],
+  vite: {
+    server: {
+      allowedHosts: true
+    }
+  }
 });
