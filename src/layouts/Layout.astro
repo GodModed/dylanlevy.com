@@ -10,6 +10,8 @@ type Props = {
 };
 
 const { title, description } = Astro.props;
+
+const ogImage = new URL("/og.png", Astro.site);
 ---
 
 <!doctype html>
@@ -23,12 +25,12 @@ const { title, description } = Astro.props;
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/og.png" />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content="Dylan Levy" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="/og.png" />
+    <meta name="twitter:image" content={ogImage} />
     <title>{title}</title>
     <GoogleAnalytics />
     <DiscordEmbed />
