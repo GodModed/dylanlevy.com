@@ -1,5 +1,6 @@
 ---
-import "@fontsource/inter";
+import "@fontsource/inter/latin-400.css";
+import interFont from "@fontsource/inter/files/inter-latin-400-normal.woff2?url";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 import Lenis from "../components/Lenis.astro";
 import DiscordEmbed from "../components/DiscordEmbed.astro";
@@ -19,6 +20,13 @@ const ogImage = new URL("/og.png", Astro.site);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="preload"
+      href={interFont}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
@@ -42,6 +50,15 @@ const ogImage = new URL("/og.png", Astro.site);
 </html>
 
 <style is:global>
+  @font-face {
+    font-family: "Inter Fallback";
+    src: local("Arial");
+    size-adjust: 107.4%;
+    ascent-override: 90.2%;
+    descent-override: 22.48%;
+    line-gap-override: 0%;
+  }
+
   html,
   body {
     margin: 0;
@@ -57,7 +74,7 @@ const ogImage = new URL("/og.png", Astro.site);
 
     --content-width: 1200px;
 
-    font-family: "Inter", sans-serif;
+    font-family: "Inter", "Inter Fallback", sans-serif;
     color: var(--color-ink);
     background: var(--color-sky);
     scroll-padding-top: 2rem;
