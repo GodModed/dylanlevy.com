@@ -1,0 +1,119 @@
+---
+const layers = [
+  { count: 85, depth: 0.35, size: 1, opacity: 0.35 },
+  { count: 45, depth: 0.65, size: 1.6, opacity: 0.55 },
+  { count: 20, depth: 1, size: 2.2, opacity: 0.8 },
+];
+const random = (seed: number) => {
+  const value = Math.sin(seed * 127.1 + 311.7) * 43758.5453;
+  return value - Math.floor(value);
+};
+---
+
+<night-stars aria-hidden="true">
+  {layers.map((layer, index) => (
+    <div class="star-layer" style={`--depth:${layer.depth}`}>
+      {Array.from({ length: layer.count }, (_, i) => {
+        const seed = i + index * 101;
+        return (
+          <span
+            class:list={["star", { bright: index === 2 }]}
+            style={`left:${random(seed + 1) * 100}%;top:${random(seed + 401) * 100}%;--size:${layer.size + random(seed + 801) * 0.5}px;opacity:${layer.opacity * (0.5 + random(seed + 1201) * 0.5)}`}
+          />
+        );
+      })}
+    </div>
+  ))}
+</night-stars>
+
+<style>
+  night-stars {
+    display: block;
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    mask-image: linear-gradient(to bottom, #000 65%, transparent);
+  }
+  :global(.dark) night-stars {
+    opacity: 1;
+  }
+  .star-layer {
+    position: absolute;
+    inset: -220px -40px;
+    transform: translate3d(
+      0,
+      calc(var(--star-scroll, 0px) * var(--depth)),
+      0
+    );
+  }
+  .star {
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background: #e3efff;
+  }
+  .bright {
+    box-shadow: 0 0 5px rgb(190 218 255 / 45%);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    night-stars {
+      transition: none;
+    }
+    .star-layer {
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  class NightStars extends HTMLElement {
+    private cleanup?: () => void;
+
+    connectedCallback() {
+      const controller = new AbortController();
+      const { signal } = controller;
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+      let frame = 0;
+      const render = () => {
+        frame = 0;
+        if (
+          reduced.matches ||
+          !document.documentElement.classList.contains("dark")
+        )
+          return;
+        const rect = this.getBoundingClientRect();
+        if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+        this.style.setProperty(
+          "--star-scroll",
+          `${Math.min(window.scrollY * 0.3, 200)}px`,
+        );
+      };
+      const schedule = () => {
+        if (!frame) frame = requestAnimationFrame(render);
+      };
+      window.addEventListener("scroll", schedule, { passive: true, signal });
+      reduced.addEventListener("change", schedule, { signal });
+      const observer = new MutationObserver(schedule);
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
+      this.cleanup = () => {
+        controller.abort();
+        observer.disconnect();
+        cancelAnimationFrame(frame);
+      };
+      schedule();
+    }
+
+    disconnectedCallback() {
+      this.cleanup?.();
+    }
+  }
+  customElements.define("night-stars", NightStars);
+</script>
